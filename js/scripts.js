@@ -11,18 +11,41 @@ var pigLatin = function(string) {
   // });
 
 
-  var secondStrings = words.map(function(word) {
+  // var secondStrings = words.map(function(word) {
+  //   for (index=1; index < word.length; index++) {
+  //     if ((word.charAt(index)==="a") || (word.charAt(index)==="e") || (word.charAt(index)==="i") || (word.charAt(index)==="o") || (word.charAt(index)==="u")) {
+  //
+  //       var firstConsonants = word.slice(0, index);
+  //       var lastConsonants = word.slice(index, word.length);
+  //       var newWord = (lastConsonants + firstConsonants + "ay");
+  //
+  //       return newWord;
+  //     }
+  //   }
+  // });
+
+  var thirdStrings = words.map(function(word) {
     for (index=1; index < word.length; index++) {
       if ((word.charAt(index)==="a") || (word.charAt(index)==="e") || (word.charAt(index)==="i") || (word.charAt(index)==="o") || (word.charAt(index)==="u")) {
-        
-        var firstConsonants = word.slice(0, index);
-        var lastConsonants = word.slice(index, word.length);
-        var newWord = (lastConsonants + firstConsonants + "ay");
 
-        return newWord;
+        if (word.includes("qu")) {
+          var firstConsonants = word.slice(0, index + 1);
+          if (firstConsonants.includes("qu")) {
+            var firstConsonants = word.slice(0, index + 1);
+            var lastConsonants = word.slice(index + 1, word.length);
+            var newWord = (lastConsonants + firstConsonants + "ay");
+            return newWord;
+          } else {
+            var firstConsonants = word.slice(0, index);
+            var lastConsonants = word.slice(index, word.length);
+            var newWord = (lastConsonants + firstConsonants + "ay");
+            return newWord;
+          }
+
+        }
       }
-    }
-  });
+    };
+  })
 }
 
 $(document).ready(function() {
