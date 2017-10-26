@@ -9,7 +9,6 @@ var pigLatin = function(string) {
         if (((word.charAt(index)==="a") || (word.charAt(index)==="e") || (word.charAt(index)==="i") || (word.charAt(index)==="o") || (word.charAt(index)==="u") || (word.charAt(index) === "y"))) {
           var firstConsonants = word.slice(0, index + 1);
           if (firstConsonants.includes("qu")) {
-            var firstConsonants = word.slice(0, index + 1);
             var lastConsonants = word.slice(index + 1, word.length);
             var newWord = (lastConsonants + firstConsonants + "ay");
             return newWord;
