@@ -1,11 +1,10 @@
 var pigLatin = function(string) {
   var words = string.split(" ");
-  var newStrings = words.map(function(word) {
-    if (!word.includes("a") || !word.includes("e") || !word.includes("i") || !word.includes("o") || !word.includes("u") || !word.includes("y")) {
-      return word;
-    }
 
-    if ((word.charAt(0)==="a") || (word.charAt(0)==="e") || (word.charAt(0)==="i") || (word.charAt(0)==="o") || (word.charAt(0)==="u")) {
+  var newStrings = words.map(function(word) {
+    if (!word.includes("a") && !word.includes("e") && !word.includes("i") && !word.includes("o") && !word.includes("u") && !word.includes("y")) {
+      return word;
+    } else if ((word.charAt(0)==="a") || (word.charAt(0)==="e") || (word.charAt(0)==="i")  || (word.charAt(0)==="o") || (word.charAt(0)==="u")) {
       var word = word.concat("way");
       return word;
     } else {
